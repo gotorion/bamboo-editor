@@ -9,9 +9,11 @@ const FONT_OPTIONS = [
   { label: "Ubuntu", value: "Ubuntu, system-ui, sans-serif" },
   { label: "Fira Code", value: "\"Fira Code\", ui-monospace, SFMono-Regular, monospace" },
   { label: "Roboto", value: "Roboto, system-ui, sans-serif" },
+  { label: "Mozilla Text", value: "\"Mozilla Text\", system-ui, sans-serif" },
   { label: "LXGW WenKai", value: "\"LXGW WenKai\", " +
       "\"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", " +
-      "system-ui, sans-serif" }
+      "system-ui, sans-serif" },
+  { label: "Lucide Consola", value: "\"Lucide Consola\", \"Lucida Console\", \"Courier New\", monospace" }
 ];
 
 const DEFAULT_TEXT = `欢迎使用 Web Notepad\n\n- 支持字体与字号调整\n- 支持亮/暗主题切换\n\n开始记录你的灵感吧！`;
