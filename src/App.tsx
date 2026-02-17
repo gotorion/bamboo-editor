@@ -20,7 +20,9 @@ const DEFAULT_TEXT = `欢迎使用 Web Notepad\n\n- 支持字体与字号调整\
 
 function App() {
   const [content, setContent] = useState(DEFAULT_TEXT);
-  const [fontFamily, setFontFamily] = useState(FONT_OPTIONS[4].value);
+  const [fontFamily, setFontFamily] = useState(
+    FONT_OPTIONS.find((font) => font.label === "LXGW WenKai")?.value ?? FONT_OPTIONS[0].value
+  );
   const [fontSize, setFontSize] = useState(16);
   const [isDark, setIsDark] = useState(false);
 
