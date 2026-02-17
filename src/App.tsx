@@ -25,8 +25,10 @@ function App() {
   );
   const [fontSize, setFontSize] = useState(16);
 
-  const backgrounds = useMemo(() => [BgOne, BgTwo, BgThree], []);
-  const backgroundUrl = backgrounds[Math.floor(Math.random() * backgrounds.length)] ?? backgrounds[0];
+  const backgroundUrl = useMemo(() => {
+    const backgrounds = [BgOne, BgTwo, BgThree];
+    return backgrounds[Math.floor(Math.random() * backgrounds.length)] ?? backgrounds[0];
+  }, []);
 
   return (
     <div
