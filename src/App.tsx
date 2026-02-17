@@ -16,7 +16,7 @@ const FONT_OPTIONS = [
   { label: "Lucide Consola", value: "\"Lucide Consola\", \"Lucida Console\", \"Courier New\", monospace" }
 ];
 
-const DEFAULT_TEXT = `欢迎使用 Web Notepad\n\n- 支持字体与字号调整\n- 支持亮/暗主题切换\n\n开始记录你的灵感吧！`;
+const DEFAULT_TEXT = `欢迎使用 Web Notepad\n\n- 支持字体与字号调整\n\n开始记录你的灵感吧！`;
 
 function App() {
   const [content, setContent] = useState(DEFAULT_TEXT);
@@ -24,42 +24,17 @@ function App() {
     FONT_OPTIONS.find((font) => font.label === "LXGW WenKai")?.value ?? FONT_OPTIONS[0].value
   );
   const [fontSize, setFontSize] = useState(16);
-  const [isDark, setIsDark] = useState(false);
 
   const backgrounds = useMemo(() => [BgOne, BgTwo, BgThree], []);
-  const [bgIndex, setBgIndex] = useState(() => Math.floor(Math.random() * backgrounds.length));
-
-  const backgroundUrl = backgrounds[bgIndex] ?? backgrounds[0];
+  const backgroundUrl = backgrounds[Math.floor(Math.random() * backgrounds.length)] ?? backgrounds[0];
 
   return (
     <div
-      className={`app ${isDark ? "theme-dark" : "theme-light"}`}
+      className="app theme-light"
       style={{ backgroundImage: `url(${backgroundUrl})` }}
       data-testid="app-root"
     >
       <div className="editor-shell">
-        <header className="topbar">
-          <div className="brand">
-            <span className="brand-icon" aria-hidden="true">✦</span>
-            <span className="brand-title">Modern Notepad</span>
-          </div>
-          <div className="topbar-actions">
-            <button
-              className="ghost"
-              type="button"
-              onClick={() => setBgIndex(Math.floor(Math.random() * backgrounds.length))}
-            >
-              换一张背景
-            </button>
-            <button
-              className="toggle"
-              type="button"
-              onClick={() => setIsDark((prev) => !prev)}
-            >
-              {isDark ? "浅色模式" : "深色模式"}
-            </button>
-          </div>
-        </header>
         <div className="toolbar">
           <div className="toolbar-group">
             <label className="label">
@@ -94,7 +69,6 @@ function App() {
         </div>
         <main className="content">
           <section className="pane">
-            <h2 className="pane-title">编辑器</h2>
             <label className="sr-only" htmlFor="editor-textarea">
               Editor
             </label>

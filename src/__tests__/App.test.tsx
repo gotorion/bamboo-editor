@@ -20,19 +20,6 @@ describe("App", () => {
     expect(textarea).toHaveValue("# 标题");
   });
 
-  it("toggles theme class", async () => {
-    const user = userEvent.setup();
-    render(<App />);
-
-    const root = screen.getByTestId("app-root");
-    const toggleButton = screen.getByRole("button", { name: "深色模式" });
-
-    await user.click(toggleButton);
-
-    expect(root.className).toContain("theme-dark");
-    expect(screen.getByRole("button", { name: "浅色模式" })).toBeInTheDocument();
-  });
-
   it("applies selected font family", async () => {
     const user = userEvent.setup();
     render(<App />);
