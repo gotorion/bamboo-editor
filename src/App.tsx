@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div
-      className="app theme-light"
+      className="app"
       style={{ backgroundImage: `url(${backgroundUrl})` }}
       data-testid="app-root"
     >
