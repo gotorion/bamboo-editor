@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Editor from "react-simple-code-editor";
 import "./App.css";
 import BgOne from "./assets/bg-1.jpg";
@@ -25,10 +25,10 @@ function App() {
   );
   const [fontSize, setFontSize] = useState(16);
 
-  const backgroundUrl = useMemo(() => {
+  const [backgroundUrl] = useState(() => {
     const backgrounds = [BgOne, BgTwo, BgThree];
     return backgrounds[Math.floor(Math.random() * backgrounds.length)] ?? backgrounds[0];
-  }, []);
+  });
 
   return (
     <div
